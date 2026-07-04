@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidhant Dhiman — Creative Developer</title>
+    <meta name="description"
+        content="Portfolio of Sidhant Dhiman, a creative full-stack developer building interactive, 3D-flavored web experiences." />
+
+    <!-- Google Fonts: Sora for display, Inter for body, JetBrains Mono for labels -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ============ LOADER ============ -->
+    <!-- Full-screen preload animation, hidden by JS once the page + 3D scene are ready -->
+    <div id="loader" aria-hidden="true">
+        <div class="loader-inner">
+            <span class="loader-mark">SD</span>
+            <div class="loader-bar"><span></span></div>
+            <span class="loader-text">initializing scene…</span>
+        </div>
+    </div>
+
+    <!-- ============ 3D BACKGROUND CANVAS ============ -->
+    <!-- Three.js renders a constellation / particle galaxy into this canvas, fixed behind everything -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- ============ NAVIGATION ============ -->
+    <header class="nav" id="nav">
+        <a href="#home" class="nav-logo">SD<span class="dot">.</span></a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home" data-nav>Home</a>
+            <a href="#about" data-nav>About</a>
+            <a href="#skills" data-nav>Skills</a>
+            <a href="#projects" data-nav>Projects</a>
+            <a href="#contact" data-nav>Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <!-- Dark / light mode toggle -->
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle light and dark theme">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="4" />
+                    <path
+                        d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+                </svg>
+            </button>
+
+            <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============ HERO ============ -->
+        <section id="home" class="hero">
+            <div class="hero-inner container">
+
+                <h1 class="hero-name reveal">
+                    Sidhant <span class="grad-text">Dhiman</span>
+                </h1>
+                <h2 class="hero-role reveal">
+                    <span id="typedText"></span><span class="caret">|</span>
+                </h2>
+                <p class="hero-desc reveal">
+                    I build modern and interactive web experiences with a focus on clean UI and smooth user experience.
+                    As a frontend developer, I enjoy learning new technologies and creating responsive, visually
+                    engaging websites.
+                </p>
+                <div class="hero-cta reveal">
+                    <a href="#projects" class="btn btn-primary">View my work</a>
+                    <a href="#contact" class="btn btn-ghost">Say hello</a>
+                </div>
+            </div>
+
+            <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+                <span></span>
+
+            </a>
+        </section>
+
+        <!-- ============ ABOUT ============ -->
+        <section id="about" class="about section">
+            <div class="container about-grid">
+
+                <div class="about-visual reveal">
+                    <div class="about-frame">
+                        <img src="/assets/sidhant1.png" alt="Portrait placeholder of Sidhant Dhiman" loading="lazy"
+                            width="480" height="560" />
+                    </div>
+                    <!-- <div class="about-badge">
+                        <span class="about-badge-num">4+</span>
+                        <span class="about-badge-label">years<br />building on the web</span>
+                    </div> -->
+                </div>
+
+                <div class="about-copy">
+                    <p class="eyebrow reveal"></p>
+                    <h2 class="section-title reveal">About Me</h2>
+                    <p class="reveal">
+                        I am a Computer Engineering student with a strong interest in web development and software
+                        engineering.
+                        I enjoy building interactive and responsive websites that provide great user experience.
+
+                        I have experience working with technologies like HTML, CSS, JavaScript, PHP and MySQL.
+                        I have also worked on projects like online quiz systems, e-learning platforms, and portfolio
+                        websites.
+
+
+                    </p>
+                    <p class="reveal">
+                        I am currently learning advanced concepts and improving my problem-solving skills to become a
+                        professional developer.
+                    </p>
+
+                    <ul class="about-facts reveal">
+                        <li>
+                            <span>Based in</span>
+                            <strong>Haryana, India</strong>
+                        </li>
+                        <li>
+                            <span>Focus</span>
+                            <strong>Full Stack Web Development</strong>
+                        </li>
+
+                        <li>
+                            <span>Currently</span>
+                            <strong>Learning & Building Projects</strong>
+                        </li>
+                    </ul>
+                    <div class="about-tags reveal">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>Next.js (Basic)</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="skills" class="skills section">
+            <div class="container">
+                <p class="eyebrow reveal center"></p>
+                <h2 class="section-title reveal center">Skills</h2>
+                <p class="section-sub reveal center">
+                    Skills I have developed through real projects and continuous learning.
+                </p>
+
+                <div class="skills-grid">
+
+                    <div class="skill-bar reveal">
+                        <div class="skill-bar-top">
+                            <span>HTML & CSS</span>
+                            <span class="skill-pct" data-target="95">0%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-fill="95"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar reveal">
+                        <div class="skill-bar-top">
+                            <span>JavaScript</span>
+                            <span class="skill-pct" data-target="85">0%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-fill="85"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar reveal">
+                        <div class="skill-bar-top">
+                            <span>PHP</span>
+                            <span class="skill-pct" data-target="80">0%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-fill="80"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar reveal">
+                        <div class="skill-bar-top">
+                            <span>MySQL</span>
+                            <span class="skill-pct" data-target="78">0%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-fill="78"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar reveal">
+                        <div class="skill-bar-top">
+                            <span>Basic Python (AI/ML)</span>
+                            <span class="skill-pct" data-target="60">0%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-fill="60"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar reveal">
+                        <div class="skill-bar-top">
+                            <span>Next.js (Basic)</span>
+                            <span class="skill-pct" data-target="40">0%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" data-fill="40"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <div class="skill-chips">
+            <div class="chip reveal">💻 Web Development</div>
+            <div class="chip reveal">🎨 UI Design</div>
+            <div class="chip reveal">🧠 Problem Solving</div>
+            <div class="chip reveal">📱 Responsive Layouts</div>
+            <div class="chip reveal">🚀 Project Building</div>
+        </div>
+        </div>
+        </section>
+        <section id="projects" class="projects section">
+            <div class="container">
+
+                <h2 class="section-title reveal center">Projects</h2>
+                <p class="section-sub reveal center">
+                    Some of the projects I have built while learning and exploring web development.
+                </p>
+
+                <div class="projects-grid">
+
+                    <!-- Project 1 -->
+                    <article class="project-card reveal">
+                        <div class="project-media">
+                            <img src="/assets/logo.png" alt="Mind Master E-learning Platform" loading="lazy"
+                                height="100%" />
+                        </div>
+                        <div class="project-body">
+                            <div class="project-tags">
+                                <span>HTML</span><span>CSS</span><span>PHP</span><span>MySQL</span>
+                            </div>
+                            <h3>Mind Master (E-Learning Platform)</h3>
+                            <p>A complete online learning system with user and admin panel. Users can access courses,
+                                PDFs, and videos.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank">Live Demo →</a>
+                                <a href="#" target="_blank">Source Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2 -->
+                    <article class="project-card reveal">
+                        <div class="project-media">
+                            <img src="/assets/7dda0dd5-9391-48ac-94db-ba1b171a779b.png" alt="Online Quiz System"
+                                loading="lazy" />
+                        </div>
+                        <div class="project-body">
+                            <div class="project-tags">
+                                <span>HTML-CSS</span><span>JS</span><span>PHP</span>
+                            </div>
+                            <h3>Online Quiz System</h3>
+                            <p>A web-based quiz platform where users can take tests and view results. Admin can manage
+                                questions.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank">Live Demo →</a>
+                                <a href="#" target="_blank">Source Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 -->
+                    <article class="project-card reveal">
+                        <div class="project-media">
+                            <img src="/assets/port.jpg" alt="Portfolio Website" loading="lazy" />
+                        </div>
+                        <div class="project-body">
+                            <div class="project-tags">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Three.js</span>
+                            </div>
+                            <h3>Portfolio Website</h3>
+                            <p>A personal portfolio website to showcase my skills, projects, and achievements with
+                                modern UI design.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank">Live Demo →</a>
+                                <a href="#" target="_blank">Source Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                    <!-- Project 4 -->
+                    <article class="project-card reveal">
+                        <div class="project-media">
+                            <img src="/assets/cal.jpg" alt="Calculator App" loading="lazy" />
+                        </div>
+                        <div class="project-body">
+                            <div class="project-tags">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                            </div>
+                            <h3>Calculator App</h3>
+                            <p>A simple and responsive calculator application that performs basic arithmetic operations
+                                with a clean user interface.</p>
+                            <div class="project-links">
+                                <a href="#" target="_blank">Live Demo →</a>
+                                <a href="#" target="_blank">Source Code</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT ============ -->
+        <section id="contact" class="contact section">
+            <div class="container contact-grid">
+
+                <div class="contact-copy reveal">
+
+                    <h2 class="section-title">Let’s build something amazing together.</h2>
+                    <p>
+                        Have a project idea, freelance work, or collaboration in mind?
+                        I'm always open to discussing new opportunities and creative ideas.
+                        <!-- Have a project in mind, a role to fill, or just want to talk shop about
+                        shaders and CSS transitions? My inbox is open. -->
+                    </p>
+
+                    <ul class="contact-info">
+                        <li>
+                            <span class="contact-info-label">Email</span>
+                            <a href="mailto:yourmail@gmail.com">yourmail@gmail.com</a>
+                        </li>
+                        <li>
+                            <span class="contact-info-label">Location</span>
+                            <span>India (Remote-friendly)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <form class="contact-form reveal" id="contactForm" novalidate>
+                    <div class="form-row">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required />
+                        <span class="form-error" data-error-for="name"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                        <span class="form-error" data-error-for="email"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me a bit about your project…"
+                            required></textarea>
+                        <span class="form-error" data-error-for="message"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary form-submit">
+                        <span class="btn-text">Send message</span>
+                    </button>
+
+                    <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+                </form>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <a href="#home" class="nav-logo">SD<span class="dot">.</span></a>
+
+            <div class="footer-socials">
+                <a href="https://github.com/sidhantdhiman" target="_blank" rel="noopener" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.1-3.2.7-3.87-1.36-3.87-1.36-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.28 5.69.42.36.78 1.07.78 2.16 0 1.56-.02 2.82-.02 3.2 0 .31.21.66.79.55A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/sidhant-dhiman-0ba38b317/" target="_blank" rel="noopener"
+                    aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.8 0 0 .78 0 1.75v20.5C0 23.22.8 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.75V1.75C24 .78 23.2 0 22.22 0Z" />
+                    </svg>
+                </a>
+                <a href="#" target="_blank" rel="noopener" aria-label="Twitter / X">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M18.9 1.5h3.68l-8.04 9.19L24 22.5h-7.4l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.5h7.59l5.24 6.93L18.9 1.5Zm-1.29 18.83h2.04L6.49 3.55H4.3l13.31 16.78Z" />
+                    </svg>
+                </a>
+                <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07ZM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.8.31-1.47.72-2.14 1.39A5.89 5.89 0 0 0 .62 4.14c-.3.75-.5 1.63-.56 2.9C0 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.9.31.8.72 1.47 1.39 2.14.67.67 1.35 1.08 2.14 1.39.75.3 1.63.5 2.9.56C8.33 24 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.9-.56.8-.31 1.47-.72 2.14-1.39.67-.67 1.08-1.35 1.39-2.14.3-.75.5-1.63.56-2.9.06-1.27.07-1.68.07-4.94s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.9a5.89 5.89 0 0 0-1.39-2.14A5.89 5.89 0 0 0 19.85.63c-.75-.3-1.63-.5-2.9-.56C15.67.01 15.26 0 12 0Zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84Zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.41-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" />
+                    </svg>
+                </a>
+            </div>
+
+            <p class="footer-copy">© <span id="year"></span> Sidhant Dhiman. Built with HTML, CSS, JS &amp; Three.js.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+    <!-- Three.js via CDN (must load before script.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
